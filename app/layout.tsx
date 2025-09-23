@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'MailMap',
+  description: 'Directory of newsletters',
+  generator: 'MailMap',
 }
 
 export default function RootLayout({
@@ -19,7 +19,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         {children}
-        <Analytics />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-8RX50CV49H" />
+        <Script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-8RX50CV49H');
+        `}
+        </Script>
       </body>
     </html>
   )
