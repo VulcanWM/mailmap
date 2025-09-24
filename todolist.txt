@@ -1,0 +1,6 @@
+- add database schema for projects
+- add oauth (nextauth)
+- check if admin on admin page
+- make oauth not that relevant
+
+just this for now
